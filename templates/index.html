@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Nigerian Traditional Attires</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        input {
+            margin: 0 auto;
+        }
+
+        div {
+            margin-top: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" action="{{ url_for('predict')}}" enctype="multipart/form-data">
+        <div class="text-center container">
+            <h3>Classifying Nigerian Attires</h3>
+            <br>
+            <img id="blah" src="#" alt="your image" height="256" width="256" class="rounded-circle" />
+            <input id="imgInp" name='img_inp' class="border rounded border-white shadow form-control form-control-sm" type="file" style="width: 255px;" required accept="image/*">
+            <br>
+            <button class="btn btn-secondary border rounded shadow-lg" type="submit">Predict</button>
+        </div>
+    </form>
+    <br>
+    <center>
+        <p id="result">Label: {{ image_class }}</p>
+    </center>
+    <script>
+        imgInp.onchange = evt => {
+        const [file] = imgInp.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
